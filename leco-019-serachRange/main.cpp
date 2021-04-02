@@ -16,7 +16,6 @@ public:
         }
         return ans;
     }
-
     vector<int> searchRange(vector<int>& nums, int target) {
         int leftIdx = binarySearch(nums, target, true);
         int rightIdx = binarySearch(nums, target, false) - 1;
