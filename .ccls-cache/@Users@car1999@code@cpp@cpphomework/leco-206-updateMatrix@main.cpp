@@ -45,6 +45,7 @@ int main(){
     vector<int> {0,1,0},
     vector<int> {0,0,0},
   };
+
   cout<<"ans is:"<<endl;
   for_each(matrix.begin(), matrix.end(), [](vector<int> &m){for_each(m.begin(), m.end(), [](int mm){cout<<mm<<" ";});cout<<" ";});
   return 0;
