@@ -177,6 +177,14 @@ size_t mbsnrtowcs(wchar_t *__restrict dst, const char **__restrict src,
 size_t wcsnrtombs(char *__restrict dst, const wchar_t **__restrict src,
                   size_t nwc, size_t len, mbstate_t *__restrict ps);
 }  // extern "C++"
-#endif  // __cplusplus && _LIBCPP_MSVCRT
+#endif // __cplusplus && _LIBCPP_MSVCRT
 
-#endif  // _LIBCPP_WCHAR_H
+// TODO:
+// RTKit's libc does not currently forward-declare `struct tm` like it's supposed to.
+// That breaks using-declarations in <cwchar>. In the future, we should remove the
+// requirement for wide characters altogether. Also see rdar://82342411.
+#if defined(_LIBCPP_ON_RTKIT)
+struct tm;
+#endif
+
+#endif // _LIBCPP_WCHAR_H
